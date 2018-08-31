@@ -6,3 +6,4 @@ Werkzeug==0.14.1
 gunicorn==19.9.0
 itsdangerous==0.24
 simplejson==3.16.0
+yeelight=0.4.2
