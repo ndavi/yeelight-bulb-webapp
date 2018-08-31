@@ -1,0 +1,36 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+    <div class="mdl-layout__tab-panel is-active" id="overview">
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+                <div class="mdl-card__supporting-text mdl-grid">
+                    <h4 class="mdl-cell mdl-cell--12-col">Lampe chambre</h4>
+                </div>
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick="toggleDimmer()">
+                        Allumer/Eteindre
+                        </button>
+                    </div>
+                </div>
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                    <input class="jscolor" value="ab2567" onchange="changecolor(this.jscolor)">
+                    </div>
+                </div>
+
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <input class="mdl-slider mdl-js-slider" type="range" onchange="changeIntensity(this.value)"
+                               min="0" max="100" value="0" tabindex="0">
+                    </div>
+                </div>
+                <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
+                    <li class="mdl-menu__item">Lorem</li>
+                    <li class="mdl-menu__item" disabled>Ipsum</li>
+                    <li class="mdl-menu__item">Dolor</li>
+                </ul>
+        </section>
+    </div>
+{% endblock %}
