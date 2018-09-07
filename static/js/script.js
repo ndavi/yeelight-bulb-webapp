@@ -1,20 +1,25 @@
+var lamps;
 
+$( document ).ready(function() {
+    lamps = $('#data').data("value");
 
-function toggleDimmer() {
-$.post( "f", function( data ) {
+});
+
+function toggleDimmer(lampID) {
+$.post( "f/" + lampID, function( data ) {
   $( ".result" ).html( data );
 });
 }
 
-function changecolor(jscolor) {
+function changecolor(jscolor, lampID) {
 colors = hexToRgb(jscolor)
-$.post( "color", colors)
+$.post( "color/" + lampID, colors)
   .done(function( data ) {
   });
 }
 
-function changeIntensity(intensity) {
-    $.post( "changeIntensity", {'intensity' : intensity})
+function changeIntensity(intensity, lampID) {
+    $.post( "changeIntensity/" + lampID, {'intensity' : intensity})
         .done(function( data ) {
 
         });
