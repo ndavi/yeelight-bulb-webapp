@@ -16,16 +16,16 @@ bulbs = [Bulb('192.168.1.100'), Bulb('192.168.1.101'), Bulb('192.168.1.102')]
 @app.route('/index')
 def index():
     # Renders index.html.
-    bulb_values = {}
-    it = 0
-    for bulb in bulbs:
-        try:
-            data = bulb.get_properties()
-            bulb_values[str(it)] = data
-            it = it + 1
-        except Exception:
-            bulb_values[str(it)] = {'connected': None}
-            it = it + 1
+    # bulb_values = {}
+    # it = 0
+    # for bulb in bulbs:
+    #     try:
+    #         data = bulb.get_properties()
+    #         bulb_values[str(it)] = data
+    #         it = it + 1
+    #     except Exception:
+    #         bulb_values[str(it)] = {'connected': None}
+    #         it = it + 1
 
     return render_template('index.html', data=json.dumps(bulb_values))
 
