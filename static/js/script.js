@@ -6,22 +6,24 @@ $( document ).ready(function() {
 });
 
 function toggleDimmer(lampID) {
-$.post( "f/" + lampID, function( data ) {
-  $( ".result" ).html( data );
-});
+    $.post("f/" + lampID)
+        .done(function( data ) {
+            Snackbar.show({text: data});
+        })
 }
 
 function changecolor(jscolor, lampID) {
 colors = hexToRgb(jscolor)
 $.post( "color/" + lampID, colors)
   .done(function( data ) {
-  });
+      Snackbar.show({text: data});
+  })
 }
 
 function changeIntensity(intensity, lampID) {
     $.post( "changeIntensity/" + lampID, {'intensity' : intensity})
         .done(function( data ) {
-
+            Snackbar.show({text: data});
         });
 }
 
