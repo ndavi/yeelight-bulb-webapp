@@ -27,25 +27,34 @@ def index():
     #         bulb_values[str(it)] = {'connected': None}
     #         it = it + 1
 
-    return render_template('index.html', data=json.dumps(bulb_values))
+    return render_template('index.html', data=None)
 
 
 @app.route('/f/<lampID>', methods=['POST'])
 def flashLight(lampID):
-    bulbs[int(lampID)].toggle()
-    return "OK"
+    try:
+        bulbs[int(lampID)].toggle()
+        return "OK"
+    except Exception as e:
+        return e.args.__str__()
 
 
 @app.route('/color/<lampID>', methods=['POST'])
 def color(lampID):
-    colors = request.form
-    bulbs[int(lampID)].set_rgb(int(colors.get('r')), int(colors.get('g')), int(colors.get('b')))
-    return "OK"
+    try:
+        colors = request.form
+        bulbs[int(lampID)].set_rgb(int(colors.get('r')), int(colors.get('g')), int(colors.get('b')))
+        return "OK"
+    except Exception as e:
+        return e.args.__str__()
 
 
 @app.route('/changeIntensity/<lampID>', methods=['POST'])
 def changeIntensity(lampID):
-    bulbs[int(lampID)].set_brightness(int(request.form.get('intensity')))
+    try:
+        bulbs[int(lampID)].set_brightness(int(request.form.get('intensity')))
+    except Exception as e:
+        return e.args.__str__()
     return "OK"
 
 
